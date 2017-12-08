@@ -1,14 +1,3 @@
 #!/bin/bash
-DATABASE_HOST='mytestdb.cgcsta0ljkpp.us-west-2.rds.amazonaws.com'
-DATABASE_PORT='3306'
-DATABASE_NAME='mypubdb'
-DATABASE_USER='Appu234'
-DATABASE_PASS='Apoorv123'
-THRESHOLD_VAL='2'
-TIMEOUT_VAL='2'
 
-docker build -t mycontainer .
-
-docker run -p 127.0.0.1:8080:8080 -e MYSQL_HOST=$DATABASE_HOST -e MYSQL_PORT=$DATABASE_PORT -e MYSQL_DB=$DATABASE_NAME -e MYSQL_USER=$DATABASE_USER -e MYSQL_PASS=$DATABASE_PASS -e THRESHOLD=$THRESHOLD_VAL -e TIMEOUT=$TIMEOUT_VAL -d mycontainer
-
-docker ps
+docker-compose up --build &
