@@ -28,6 +28,8 @@ def apiCall(url, api_name):
         if api_name in settings.CACHE.keys():
             return HttpResponse(content=settings.CACHE[api_name], content_type='text/xml')
         return HttpResponse('Timeout', status=504)
+    except Exception, e:
+        return HttpResponse(e.message, status=504)
 
 def agencyList(req):
     url = URL + 'agencyList'
